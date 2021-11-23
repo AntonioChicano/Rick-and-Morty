@@ -1,0 +1,24 @@
+
+
+
+//centrar tarjeta
+mat-card{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+img{
+    width: 500px;
+}
+
+@media (max-width: 600px) {
+    img{
+        width: auto;
+    }
+    mat-card{
+        display: block;
+        text-align: left;
+    }
+}

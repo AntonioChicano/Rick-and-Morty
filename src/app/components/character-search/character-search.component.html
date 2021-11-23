@@ -1,0 +1,60 @@
+<!--por nombre-->
+<form #searchChar="ngForm">
+    <div class="alone">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Nombre:</mat-label>
+            <input type="text" required matInput name="name" [(ngModel)]="charname" #name="ngModel">
+            <mat-error *ngIf="name.invalid && (name.dirty || name.touched)" class="error">
+                !Debe añadir un nombre¡
+            </mat-error>
+            <mat-error *ngIf="messageNoResults !== ''" class="error">
+                {{messageNoResults}} <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="button" (click)="searchByName(name)" class="basic-app">Buscar
+            por
+            nombre</button>
+    </div>
+
+    <!--por ID-->
+    <div class="alone">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>ID:</mat-label>
+            <input type="text" required matInput name="id" [(ngModel)]="charid" #id="ngModel">
+            <mat-error *ngIf="name.invalid && (name.dirty || name.touched)" class="error">
+                !Debe añadir un numero¡
+            </mat-error>
+            <mat-error *ngIf="messageNoResults !== ''" class="error">
+                {{messageNoResults}} <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="button" (click)="searchById(id)" class="basic-app">Buscar
+            por
+            ID</button>
+    </div>
+
+</form>
+
+<!--Listado alineado y cañadido de fondo-->
+<div class="fondo">
+    <mat-grid-list cols="4">
+        <mat-grid-tile *ngFor="let character of charactersSearch">
+
+            <mat-card>
+                <mat-card-title>{{ character.name }}</mat-card-title>
+                <mat-card-subtitle></mat-card-subtitle>
+                <mat-card-content>
+                    <a mat-raised-button color="primary" routerLink="/detail/{{ character.id }}">
+                        <div class="card">
+                            <div class="cardname">
+                                <p>{{ character.name }}</p>
+                            </div>
+                            <figure><img [src]="character.image" /></figure>
+                        </div>
+                    </a>
+                </mat-card-content>
+            </mat-card>
+
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

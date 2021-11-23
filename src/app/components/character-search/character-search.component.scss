@@ -1,0 +1,19 @@
+.alone{
+    min-width: 100%;
+    margin: 2em;
+}
+
+.basic-app{
+    margin: 1em;
+}
+
+form{
+    display: inline-flex;
+    text-align: center;
+}
+
+//imagen de fondo
+.fondo{
+    background-image: url(../../../assets/img/fondoBuscador.png);
+    background-size: cover;
+}
